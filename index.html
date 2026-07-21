@@ -1,0 +1,145 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ember &amp; Tide — co-op platformer</title>
+<link rel="stylesheet" href="css/ui.css" />
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+
+<main class="shell">
+
+  <!-- ---------------------------------------------------- connect -->
+  <section id="screen-connect" class="panel center">
+    <p class="eyebrow">Peer to peer · no game server</p>
+    <h1 id="connect-title">Opening a room</h1>
+    <p id="connect-note" class="muted">Talking to the signalling server…</p>
+
+    <div id="share-row" class="share" hidden>
+      <input id="share-link" readonly />
+      <button id="copy-link" class="btn">Copy link</button>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------ lobby -->
+  <section id="screen-lobby" class="panel" hidden>
+    <header class="lobby-head">
+      <div>
+        <p class="eyebrow">Level select</p>
+        <h1>Pick a stage</h1>
+        <p id="lobby-hint" class="muted"></p>
+      </div>
+      <div class="roles">
+        <div class="role-row"><span class="label">You</span><span id="role-mine" class="role-chip"></span></div>
+        <div class="role-row"><span class="label">Partner</span><span id="role-theirs" class="role-chip"></span></div>
+        <button class="btn ghost host-only" data-action="swap" hidden>Swap characters</button>
+      </div>
+    </header>
+    <div id="level-grid" class="level-grid"></div>
+  </section>
+
+  <!-- ------------------------------------------------------- game -->
+  <section id="screen-game" hidden>
+    <div class="hud">
+      <button id="btn-to-lobby" class="btn ghost">Level select</button>
+      <span id="hud-level" class="hud-level"></span>
+      <button class="btn ghost host-only" data-action="swap" hidden>Swap characters</button>
+    </div>
+    <div class="stage-wrap">
+      <canvas id="stage" width="800" height="512"></canvas>
+      <div id="modal-complete" class="modal" hidden>
+        <div class="modal-card">
+          <p class="eyebrow">Both doors reached</p>
+          <h2 id="complete-title">Level cleared</h2>
+          <div class="modal-actions">
+            <button id="btn-next" class="btn">Next level</button>
+            <button id="btn-select" class="btn ghost">Level select</button>
+          </div>
+          <p id="complete-wait" class="muted" hidden>Waiting for the host to choose.</p>
+        </div>
+      </div>
+    </div>
+    <p class="keys muted">Move with <kbd>A</kbd>/<kbd>D</kbd> or arrows · jump with <kbd>W</kbd>, <kbd>↑</kbd> or <kbd>Space</kbd></p>
+  </section>
+
+</main>
+
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="js/main.js"></script>
+=======
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fireboy &amp; Watergirl — P2P</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- 1. підключення -->
+  <div id="network-panel" class="panel">
+    <div id="status">Перевірка кімнати...</div>
+    <button id="action-btn" class="btn" style="display:none;">Я підключився, почати гру!</button>
+    <div class="reset-row">
+      <a href="#" id="reset-link">Не та кімната? Створити нову</a>
+    </div>
+  </div>
+
+  <!-- 2. вибір рівня (бачать обидва, клікає лише хост) -->
+  <div id="lobby" class="panel" hidden>
+    <header class="lobby-head">
+      <div>
+        <p class="eyebrow">Вибір рівня</p>
+        <h1>Оберіть етап</h1>
+        <p id="lobby-hint" class="muted"></p>
+      </div>
+      <div class="roles">
+        <div class="role-row"><span class="label">Ви</span><span id="role-mine" class="chip"></span></div>
+        <div class="role-row"><span class="label">Партнер</span><span id="role-theirs" class="chip"></span></div>
+        <button class="btn ghost host-only" data-action="swap">Поміняти персонажів</button>
+      </div>
+    </header>
+    <div id="level-grid" class="level-grid"></div>
+  </div>
+
+  <!-- 3. гра -->
+  <div id="game-wrap" hidden>
+    <div class="hud">
+      <button id="to-lobby" class="btn ghost host-only">Вибір рівня</button>
+      <span id="hud-level"></span>
+      <button class="btn ghost host-only" data-action="swap">Поміняти персонажів</button>
+    </div>
+
+    <div class="stage">
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+      <div id="modal" class="modal" hidden>
+        <div class="modal-card">
+          <p class="eyebrow">Обидві двері досягнуто</p>
+          <h2 id="modal-title">Рівень пройдено</h2>
+          <div class="modal-actions host-only">
+            <button id="btn-next" class="btn">Наступний рівень</button>
+            <button id="btn-select" class="btn ghost">Вибір рівня</button>
+          </div>
+          <p id="modal-wait" class="muted">Хост обирає, що далі...</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="keys muted">
+      Рух — <kbd>A</kbd>/<kbd>D</kbd> або стрілки · стрибок — <kbd>W</kbd>, <kbd>↑</kbd>, <kbd>Space</kbd>
+    </p>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script type="module" src="/src/main.js"></script>
+>>>>>>> a59abec (Structur32)
+</body>
+</html>
